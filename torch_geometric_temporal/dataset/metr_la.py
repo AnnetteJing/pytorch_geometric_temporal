@@ -64,6 +64,8 @@ class METRLADatasetLoader(object):
 
         self.A = torch.from_numpy(A)
         self.X = torch.from_numpy(X)
+        self.mean = means
+        self.std = stds
 
     def _get_edges_and_weights(self):
         edge_indices, values = dense_to_sparse(self.A)
