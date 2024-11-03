@@ -89,6 +89,7 @@ class METRLADatasetLoader(object):
             (i, i + (num_timesteps_in + num_timesteps_out))
             for i in range(self.X.shape[2] - (num_timesteps_in + num_timesteps_out) + 1)
         ]
+        self.indices = indices
 
         # Generate observations
         features, target = [], []
