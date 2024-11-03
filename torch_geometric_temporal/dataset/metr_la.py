@@ -57,15 +57,15 @@ class METRLADatasetLoader(object):
         X = X.astype(np.float32)
 
         # Normalise as in DCRNN paper (via Z-Score Method)
-        means = np.mean(X, axis=(0, 2))
-        X = X - means.reshape(1, -1, 1)
-        stds = np.std(X, axis=(0, 2))
-        X = X / stds.reshape(1, -1, 1)
+        # means = np.mean(X, axis=(0, 2))
+        # X = X - means.reshape(1, -1, 1)
+        # stds = np.std(X, axis=(0, 2))
+        # X = X / stds.reshape(1, -1, 1)
 
         self.A = torch.from_numpy(A)
         self.X = torch.from_numpy(X)
-        self.mean = means
-        self.std = stds
+        # self.mean = means
+        # self.std = stds
 
     def _get_edges_and_weights(self):
         edge_indices, values = dense_to_sparse(self.A)
